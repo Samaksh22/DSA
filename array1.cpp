@@ -12,6 +12,12 @@ int main()
     m[2] = 4;
 
     // DOES NOT PRODUCE OUT OF BOUND
-    // INSTEAD LEADS TO BUFFER OVERFLOW
-    cout << f[m[2]] << endl << f[5];
+    // instead throws BUFFER OVERFLOW
+    cout << f[m[2]] << endl << f[5] << endl;
+
+    // pointers and arrays
+    char c[] = {'c', 'a', 't'};
+    char *p = c;
+    char *q = &c[0];
+    cout << c[2] << p[2] << q[2] << endl;
 }
