@@ -42,7 +42,7 @@ bool isHTMLmatched(const vector<string> &tags)
             string open = s.top().substr(1);
             string close = p.substr(2);
 
-        if (open.compare(close) != 0)
+            if (open.compare(close) != 0)
                 return false;
             else
                 s.pop();
