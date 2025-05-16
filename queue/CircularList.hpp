@@ -17,14 +17,20 @@ class CircularList
 {
 private:
     CNode<E> *cursor;
+    int n;
 
 public:
-    CircularList() : cursor(nullptr) {}
+    CircularList() : cursor(nullptr), n(0) {}
 
     ~CircularList()
     {
         while (!empty())
             remove();
+    }
+
+    const int size() const
+    {
+        return n;
     }
 
     bool empty() const
@@ -49,6 +55,7 @@ public:
 
     void add(const E &e)
     {
+        ++n;
         CNode<E> *v = new CNode<E>(e);
         if (cursor)
         {
@@ -64,6 +71,7 @@ public:
 
     void remove()
     {
+        --n;
         CNode<E> *old = cursor->next;
         if (old == cursor)
             cursor = nullptr;
