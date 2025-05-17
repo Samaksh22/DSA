@@ -1,6 +1,4 @@
-#include <iostream>
-#include <string>
-using namespace std;
+#pragma once
 
 template <typename Elem>
 struct DNode
@@ -44,14 +42,14 @@ public:
         return head->next->elem;
     }
 
-    const Elem *back() const
+    const Elem &back() const
     {
         return tail->prev->elem;
     }
 
     void add(DNode<Elem> *v, const Elem &e)
     {
-        DNode<Elem> *u = new DNode;
+        DNode<Elem> *u = new DNode<Elem>;
         u->elem = e;
         u->next = v;
         u->prev = v->prev;
