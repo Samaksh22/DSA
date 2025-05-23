@@ -1,15 +1,17 @@
+#pragma once
+
 #include <iostream>
 #include <string>
 
 using namespace std;
 
 #define MAX_SIZE 10
-typedef int Elem;
 
+template <class E>
 class Deque
 {
 private:
-    Elem *arr;
+    E *arr;
     int capacity;
     int n;
     int i;
@@ -17,7 +19,7 @@ private:
 public:
     Deque(int c) : capacity(c), n(0), i(0)
     {
-        arr = new Elem[c];
+        arr = new E[c];
     }
 
     ~Deque()
@@ -49,22 +51,22 @@ public:
         return n;
     }
 
-    Elem front()
+    E &front()
     {
         if (n == 0)
-            return Elem{};
+            return E{};
         return arr[i];
     }
 
-    Elem back()
+    E &back()
     {
         if (n == 0)
-            return Elem{};
+            return E{};
         int j = (i + n - 1) % capacity;
         return arr[j];
     }
 
-    void addFront(Elem e)
+    void addFront(E e)
     {
         if (n == capacity)
             cout << "Deque is Full ..." << endl;
@@ -76,7 +78,7 @@ public:
         }
     }
 
-    void addBack(Elem e)
+    void addBack(E e)
     {
         if (n == capacity)
             cout << "Deque is Full ..." << endl;
@@ -109,40 +111,3 @@ public:
         }
     }
 };
-
-int main()
-{
-    Deque q(6);
-    
-    q.printDeque();
-    
-    q.addFront(1);
-    q.addFront(2);
-    
-    q.printDeque();
-    
-    q.removeBack();
-    
-    q.printDeque();
-    
-    q.addBack(3);
-    q.addFront(6);
-    
-    q.printDeque();
-
-    q.addBack(7);
-    q.addBack(8);
-    q.addBack(9);
-    
-    q.printDeque();
-
-    q.removeFront();
-
-    q.printDeque();
-    
-    q.addBack(9);
-
-    q.printDeque();
-
-    return 0;
-}
