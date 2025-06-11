@@ -162,7 +162,8 @@ public:
     void printList() const
     {
         cout << "List (" << size() << " elements): ";
-        if (empty()) {
+        if (empty())
+        {
             cout << "Empty." << endl;
             return;
         }
@@ -171,5 +172,29 @@ public:
             cout << *it << " ";
         }
         cout << endl;
+    }
+};
+
+class NodeSequence : public NodeList
+{
+public:
+    Iterator atIndex(int t) const
+    {
+        Iterator p = begin();
+        for (int j = 0; j < t; j++)
+            ++p;
+        return p;
+    }
+
+    int indexOf(const Iterator &p) const
+    {
+        Iterator q = begin();
+        int j = 0;
+        while (q != p)
+        {
+            ++q;
+            ++j;
+        }
+        return j;
     }
 };

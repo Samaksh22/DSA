@@ -49,7 +49,7 @@ typedef unordered_set<int> usi;
 
 // --- Main Logic Structure ---
 void solve() {
-    
+
 }
 
 int main() {
